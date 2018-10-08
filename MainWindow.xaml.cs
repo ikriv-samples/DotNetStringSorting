@@ -20,8 +20,11 @@ namespace SortingTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainViewModel _vm;
+
         public MainWindow()
         {
+            DataContext = _vm = new MainViewModel();
             InitializeComponent();
         }
     }

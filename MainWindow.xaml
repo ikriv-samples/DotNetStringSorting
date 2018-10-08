@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
         
+        <TextBox Grid.Row="0" AcceptsReturn="True" Margin="5" Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <DockPanel Grid.Row="1">
+            <ComboBox Margin="3" DockPanel.Dock="Right" Width="200"
+                      ItemsSource="{Binding ComparerNames}" 
+                      SelectedItem="{Binding SelectedComparerName}" />
+            
+            <ComboBox Margin="3" 
+                      ItemsSource="{Binding AllCultures}" 
+                      DisplayMemberPath="DisplayName" 
+                      SelectedItem="{Binding SelectedCulture}"/>
+            
+        </DockPanel>
+
+        <TextBox Grid.Row="2" AcceptsReturn="True" Margin="5" IsReadOnly="True" Text="{Binding OutputText}" />
+
     </Grid>
 </Window>
