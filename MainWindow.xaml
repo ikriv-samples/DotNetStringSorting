@@ -3,19 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SortingTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="String Sorting Test" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         
-        <TextBox Grid.Row="0" AcceptsReturn="True" Margin="5" Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Row="0" Margin="3,0,0,0">Unsorted Input:</Label>
+
+        <TextBox x:Name="InputText"  Margin="5,0,5,5" 
+                 Grid.Row="1" AcceptsReturn="True" Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         
-        <DockPanel Grid.Row="1">
+        <DockPanel Grid.Row="2">
             <ComboBox Margin="3" DockPanel.Dock="Right" Width="200"
                       ItemsSource="{Binding ComparerNames}" 
                       SelectedItem="{Binding SelectedComparerName}" />
@@ -27,7 +31,9 @@
             
         </DockPanel>
 
-        <TextBox Grid.Row="2" AcceptsReturn="True" Margin="5" IsReadOnly="True" Text="{Binding OutputText}" />
+        <Label Grid.Row="3" Margin="3,0,0,0">Sorted output:</Label>
+        <TextBox Grid.Row="4" Margin="5,0,5,5" Background="LightGray"
+                 AcceptsReturn="True" IsReadOnly="True" Text="{Binding OutputText}" />
 
     </Grid>
 </Window>
